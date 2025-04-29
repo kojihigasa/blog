@@ -12,7 +12,6 @@ import { themeConfig } from './src/.config'
 export default defineConfig({
   site: themeConfig.site.website,
   prefetch: true,
-  base: 'blog',
   markdown: {
     remarkPlugins: [
       remarkMath,
