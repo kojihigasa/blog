@@ -5,16 +5,16 @@ import type { ThemeConfig } from '~/types'
 
 export const defaultConfig: ThemeConfig = {
   site: {
-    title: '活版印字',
-    subtitle: 'Typography',
-    author: 'Moeyua',
-    description: 'Rediscory the beauty of typography',
-    website: 'https://astro-theme-typography.vercel.app/',
+    title: 'Koji Higasa Blog',
+    subtitle: 'What you want is what you need',
+    author: 'Koji Higasa',
+    description: 'Koji Higasa Blog',
+    website: 'https://kojihigasa.github.io/blog/',
     pageSize: 5,
     socialLinks: [
       {
         name: 'github',
-        href: 'https://github.com/moeyua/astro-theme-typography',
+        href: 'https://github.com/kojihigasa',
       },
       {
         name: 'rss',
@@ -22,11 +22,11 @@ export const defaultConfig: ThemeConfig = {
       },
       {
         name: 'twitter',
-        href: 'https://github.com/moeyua/astro-theme-typography',
+        href: 'https://twitter.com/kojihigasa',
       },
       {
-        name: 'mastodon',
-        href: 'https://github.com/moeyua/astro-theme-typography',
+        name: 'linkedin',
+        href: 'https://www.linkedin.com/in/koji-higasa-21a83a171/',
       },
     ],
     navLinks: [
@@ -50,13 +50,11 @@ export const defaultConfig: ThemeConfig = {
     categoryMap: [{ name: '胡适', path: 'hu-shi' }],
     footer: [
       '© %year <a target="_blank" href="%website">%author</a>',
-      'Theme <a target="_blank" href="https://github.com/Moeyua/astro-theme-typography">Typography</a> by <a target="_blank" href="https://moeyua.com">Moeyua</a>',
-      'Proudly published with <a target="_blank" href="https://astro.build/">Astro</a>',
     ],
   },
   appearance: {
     theme: 'system',
-    locale: 'zh-cn',
+    locale: 'en-us',
     colorsLight: {
       primary: '#2e405b',
       background: '#ffffff',
@@ -72,7 +70,7 @@ export const defaultConfig: ThemeConfig = {
     },
   },
   seo: {
-    twitter: '@moeyua13',
+    twitter: '@kojihigasa',
     meta: [],
     link: [],
   },
@@ -80,7 +78,7 @@ export const defaultConfig: ThemeConfig = {
     fullText: true,
   },
   comment: {
-    // disqus: { shortname: "typography-astro" },
+    disqus: { shortname: "koji-higasa-blog" },
   },
   analytics: {
     googleAnalyticsId: '',
