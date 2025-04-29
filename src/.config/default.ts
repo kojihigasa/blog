@@ -9,7 +9,7 @@ export const defaultConfig: ThemeConfig = {
     subtitle: 'What you want is what you need',
     author: 'Koji Higasa',
     description: 'Koji Higasa Blog',
-    website: 'https://kojihigasa.github.io/blog/',
+    website: 'https://kojihigasa.github.io',
     pageSize: 5,
     socialLinks: [
       {
