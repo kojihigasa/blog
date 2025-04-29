@@ -9,7 +9,7 @@ export const defaultConfig: ThemeConfig = {
     subtitle: 'What you want is what you need',
     author: 'Koji Higasa',
     description: 'Koji Higasa Blog',
-    website: 'https://kojihigasa.github.io/blog/',
+    website: 'https://kojihigasa.github.io',
     pageSize: 5,
     socialLinks: [
       {
@@ -32,19 +32,19 @@ export const defaultConfig: ThemeConfig = {
     navLinks: [
       {
         name: 'Posts',
-        href: '/',
+        href: '/blog',
       },
       {
         name: 'Archive',
-        href: '/archive',
+        href: '/blog/archive',
       },
       {
         name: 'Categories',
-        href: '/categories',
+        href: '/blog/categories',
       },
       {
         name: 'About',
-        href: '/about',
+        href: '/blog/about',
       },
     ],
     categoryMap: [{ name: '胡适', path: 'hu-shi' }],
