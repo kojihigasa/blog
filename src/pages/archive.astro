@@ -27,7 +27,7 @@ function getYearMap(posts: Post[]) {
 function getListItem(post: Post): ListItem {
   return {
     title: post.data.title,
-    href: `/posts/${post.id}/`,
+    href: `/blog/posts/${post.id}/`,
     date: formatDate(post.data.pubDate, 'MM-DD'),
   }
 }

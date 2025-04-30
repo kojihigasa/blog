@@ -49,11 +49,11 @@ export const defaultConfig: ThemeConfig = {
     ],
     categoryMap: [{ name: '胡适', path: 'hu-shi' }],
     footer: [
-      '© %year <a target="_blank" href="%website">%author</a>',
+      '© %year <a target="_blank" href="%website/blog">%author</a>',
     ],
   },
   appearance: {
-    theme: 'system',
+    theme: 'light',
     locale: 'en-us',
     colorsLight: {
       primary: '#2e405b',
