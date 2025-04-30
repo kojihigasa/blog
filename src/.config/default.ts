@@ -81,7 +81,7 @@ export const defaultConfig: ThemeConfig = {
     disqus: { shortname: "koji-higasa-blog" },
   },
   analytics: {
-    googleAnalyticsId: '',
+    googleAnalyticsId: 'G-0SCQHT4PJN',
     umamiAnalyticsId: '',
   },
   latex: {
