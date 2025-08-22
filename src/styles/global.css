@@ -8,6 +8,8 @@ html {
   --at-apply: antialiased;
   --at-apply: 'bg-background c-primary font-ui text-shadow-color-shadow';
 
+  font-family: 'Noto Sans JP', sans-serif;
+
   text-shadow: 1px 1px 1px var(--uno-colors-shadow);
   background-size: 7px 7px;
   background-image: linear-gradient(to right, var(--uno-colors-shadow) 1px, transparent 1px),
