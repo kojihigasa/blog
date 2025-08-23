@@ -111,3 +111,29 @@ math {
   -webkit-transform: none !important;
   transform: none !important;
 }
+
+/* Fix: prevent Safari from clipping ordered/unordered list markers */
+ol, ul {
+  -webkit-padding-start: 1.5rem !important; /* Safari */
+  padding-inline-start: 1.5rem !important;
+  list-style-position: outside !important;
+  margin-inline-start: 0 !important;
+}
+
+/* Ensure list items themselves are not clipped by overflow */
+ol li, ul li {
+  overflow: visible !important;
+}
+
+/* If a parent transform/overflow clips markers on Safari, this helps avoid clipping */
+ol, ul {
+  isolation: isolate;
+}
+
+/* Slight adjustment for small viewports */
+@media (max-width: 640px) {
+  ol, ul {
+    -webkit-padding-start: 1.25rem !important;
+    padding-inline-start: 1.25rem !important;
+  }
+}
