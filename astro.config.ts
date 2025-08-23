@@ -18,7 +18,7 @@ export default defineConfig({
       remarkMath,
     ],
     rehypePlugins: [
-      [rehypeKatex, { output: 'html' }] // thanks to https://weekend-thinker.com/blog/computer/7/
+      [rehypeKatex, { output: 'mathml' }] // thanks to https://weekend-thinker.com/blog/computer/7/
     ],
     shikiConfig: {
       theme: 'dracula',

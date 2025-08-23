@@ -22,3 +22,12 @@ html {
   --at-apply: 'ease-in-out duration-300ms';
   --at-apply: 'hover:(c-background bg-primary decoration-primary)';
 }
+
+/* ensure display math doesn't overflow the viewport on mobile */
+.katex-display, .katex, .rehype-katex {
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  padding-bottom: 0.25rem;
+}
