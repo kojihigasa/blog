@@ -131,61 +131,13 @@ ol, ul {
 }
 
 /* =========================
-   Mobile-specific fixes: prevent MathML and list markers from being clipped on iOS/Safari
+   Mobile-specific fixes: prevent list markers from being clipped on iOS
    ========================= */
 @media (max-width: 640px) {
-  /* Ensure math blocks can scroll and don't overflow the viewport */
-  .rehype-katex,
-  .rehype-katex math,
-  .rehype-katex .math,
-  math {
-    display: block !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    padding: 0.25rem 0.5rem !important;
-    margin: 0.4rem 0 !important;
-  }
-
-  /* Let MathML table cells wrap and relax fixed sizing on mobile */
-  math mtable,
-  .rehype-katex math mtable {
-    border-collapse: separate !important;
-    border-spacing: 0.5rem 0 !important;
-    width: auto !important;
-    max-width: 100% !important;
-  }
-
-  math mtr,
-  math mtd,
-  .rehype-katex math mtr,
-  .rehype-katex math mtd {
-    display: table-row !important;
-    display: table-cell !important;
-    white-space: normal !important;
-    word-break: break-word !important;
-    padding: 0 0.35rem !important;
-    min-width: 0 !important;
-  }
-
-  /* Prevent parent containers from clipping children with transforms/overflow */
-  main, article, .post, .content, .page {
-    overflow: visible !important;
-    -webkit-overflow-scrolling: touch !important;
-    transform: none !important;
-    will-change: auto !important;
-  }
-
   /* Give list markers enough inset on narrow screens (prevent clipping) */
   ol, ul {
     -webkit-padding-start: max(1.6rem, env(safe-area-inset-left)) !important;
     padding-inline-start: max(1.6rem, env(safe-area-inset-left)) !important;
     list-style-position: outside !important;
-  }
-
-  /* Ensure list items themselves don't get clipped */
-  ol li, ul li {
-    overflow: visible !important;
   }
 }
