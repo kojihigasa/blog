@@ -1,3 +1,5 @@
+@import "katex/dist/katex.min.css";
+
 :root {
   --uno-colors-primary: theme('colors.primary');
   --uno-colors-background: theme('colors.background');
@@ -23,7 +25,6 @@ html {
   --at-apply: 'hover:(c-background bg-primary decoration-primary)';
 }
 
-/* ensure display math doesn't overflow the viewport on mobile */
 .katex-display, .katex, .rehype-katex {
   overflow-x: auto;
   max-width: 100%;
