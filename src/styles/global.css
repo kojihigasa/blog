@@ -22,3 +22,92 @@ html {
   --at-apply: 'ease-in-out duration-300ms';
   --at-apply: 'hover:(c-background bg-primary decoration-primary)';
 }
+
+/* =========================
+   MathML / rehype-katex fixes
+   Improve aligned (&=) rendering on Safari / mobile
+   ========================= */
+
+
+/* Ensure inner MathML elements don't force fixed width */
+math,
+math * {
+  max-width: 100%;
+  box-sizing: border-box;
+  -webkit-transform: none;
+  transform: none;
+}
+
+
+/* Some user-agents (Safari) apply transforms/zoom on math tables — neutralize */
+math mtable {
+  -webkit-transform: none;
+  transform: none;
+}
+
+/* Fallback for classes rehype-katex may emit */
+.rehype-katex math,
+.rehype-katex .math {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* =========================
+   Safari: fix aligned (&=) column alignment for MathML (rehype-katex)
+   - force table-like rendering and auto table-layout
+   - let first (possibly empty) column shrink
+   - center the equals column so &= lines up
+   ========================= */
+.rehype-katex math mtable,
+math mtable {
+  display: table !important;
+  table-layout: auto !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 0;
+  border-collapse: collapse;
+}
+
+.rehype-katex math mtr,
+math mtr {
+  display: table-row !important;
+}
+
+.rehype-katex math mtd,
+math mtd {
+  display: table-cell !important;
+  box-sizing: border-box;
+  vertical-align: baseline !important;
+  padding: 0 0.25rem !important;
+  min-width: 0 !important;        /* allow columns to shrink on narrow viewports */
+  white-space: nowrap !important; /* keep short tokens unbroken; long parts wrap in later columns */
+}
+
+/* make the (often-empty) leading column collapse */
+.rehype-katex math mtr > mtd:first-child,
+math mtr > mtd:first-child {
+  width: 1% !important;
+  padding-right: 0.25rem !important;
+  white-space: nowrap !important;
+}
+
+/* center the equals column so '&=' aligns vertically;
+   allow right-side content to wrap when needed */
+.rehype-katex math mtr > mtd:nth-child(2),
+math mtr > mtd:nth-child(2) {
+  text-align: center !important;
+  white-space: normal !important;
+}
+
+.rehype-katex math mtr > mtd:nth-child(3),
+math mtr > mtd:nth-child(3) {
+  text-align: left !important;
+  white-space: normal !important;
+}
+
+/* ensure MathML elements don't get transformed/scaled by Safari */
+.rehype-katex math,
+math {
+  -webkit-transform: none !important;
+  transform: none !important;
+}
