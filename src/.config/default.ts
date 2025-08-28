@@ -6,7 +6,7 @@ import type { ThemeConfig } from '~/types'
 export const defaultConfig: ThemeConfig = {
   site: {
     title: 'Koji Higasa Blog',
-    subtitle: 'What you want is what you need',
+    subtitle: 'supercalifragilisticexpialidocious',
     author: 'Koji Higasa',
     description: 'Koji Higasa Blog',
     website: 'https://kojihigasa.github.io',
