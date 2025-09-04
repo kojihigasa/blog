@@ -21,7 +21,7 @@ $$
 またその軌跡は, 拡散を $T$ ステップ行うとすれば, 次のような Markov 連鎖として与えられる.
 $$
 \begin{align}
-q\left(\mathbf{x}^{(0\cdots T)}\right) &= q\left(\mathbf{x}^{(0)}\right)\prod_{t=1}^Tq\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right) \\
+q\left(\mathbf{x}^{(0\cdots T)}\right) &= q\left(\mathbf{x}^{(0)}\right)∏_{t=1}^Tq\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right) \\
 q\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right) &= T_{\pi}\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)};β_t\right)
 \end{align}
 $$
@@ -30,7 +30,7 @@ $$
 
 拡散過程の定式化を振り返れば, 逆拡散過程の軌跡が $p\left(\mathbf{x}^{(T)}\right)=\pi\left(\mathbf{x}^{(T)}\right)$ として, 次のように与えられることは自明といってよい.
 $$
-p\left(\mathbf{x}^{(0\cdots T)}\right) = p\left(\mathbf{x}^{(T)}\right)\prod_{t=1}^Tp\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)
+p\left(\mathbf{x}^{(0\cdots T)}\right) = p\left(\mathbf{x}^{(T)}\right)∏_{t=1}^Tp\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)
 $$
 
 ## 生成分布
@@ -42,8 +42,8 @@ $$
 &= ∫p\left(\mathbf{x}^{(0\cdots T)}\right)\mathrm{d}\mathbf{x}^{(1\cdots T)}\space\space(*) \\
 &= ∫\frac{q\left(\mathbf{x}^{(1\cdots T)}|\mathbf{x}^{(0)}\right)}{q\left(\mathbf{x}^{(1\cdots T)}|\mathbf{x}^{(0)}\right)}p\left(\mathbf{x}^{(0\cdots T)}\right)\mathrm{d}\mathbf{x}^{(1\cdots T)} \\
 &= ∫\frac{p\left(\mathbf{x}^{(0\cdots T)}\right)}{q\left(\mathbf{x}^{(1\cdots T)}|\mathbf{x}^{(0)}\right)}q\left(\mathbf{x}^{(1\cdots T)}|\mathbf{x}^{(0)}\right)\mathrm{d}\mathbf{x}^{(1\cdots T)} \\
-&= ∫p\left(\mathbf{x}^{(T)}\right)\prod_{t=1}^T\frac{p\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)}{q\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right)}q\left(\mathbf{x}^{(1\cdots T)}|\mathbf{x}^{(0)}\right)\mathrm{d}\mathbf{x}^{(1\cdots T)}\space\space(**) \\
-&= \mathbb{E}_{q\left(\mathbf{x}^{(1\cdots T)}|\mathbf{x}^{(0)}\right)}\left[p\left(\mathbf{x}^{(T)}\right)\prod_{t=1}^T\frac{p\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)}{q\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right)}\right] \\
+&= ∫p\left(\mathbf{x}^{(T)}\right)∏_{t=1}^T\frac{p\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)}{q\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right)}q\left(\mathbf{x}^{(1\cdots T)}|\mathbf{x}^{(0)}\right)\mathrm{d}\mathbf{x}^{(1\cdots T)}\space\space(**) \\
+&= \mathbb{E}_{q\left(\mathbf{x}^{(1\cdots T)}|\mathbf{x}^{(0)}\right)}\left[p\left(\mathbf{x}^{(T)}\right)∏_{t=1}^T\frac{p\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)}{q\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right)}\right] \\
 &\mathop{→}\limits_{β→0} \mathbb{E}_{q\left(\mathbf{x}^{(1\cdots T)}|\mathbf{x}^{(0)}\right)}\left[p\left(\mathbf{x}^{(T)}\right)\right]\space\space∵\frac{p\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)}{q\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right)}→1
 \end{align}
 $$
@@ -51,18 +51,18 @@ $$
 
 ## 訓練
 
-訓練とは, 次で与えられる対数尤度 $L$ を最大化することである. しかし実際の問題は, その下限 $K$ を最大化する逆拡散過程を見つけることである, $\mathrm{i.e.}$, $\hat{p}\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)\coloneqq\mathop{\argmax}\limits_{p\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)}K$.
+訓練とは, 次で与えられる対数尤度 $L$ を最大化することである. しかし実際の問題は, その下限 $K$ を最大化する逆拡散過程を見つけることである, $\mathrm{i.e.}$, $\hat{p}\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)≔\mathop{\argmax}\limits_{p\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)}K$.
 
 $$
 \begin{align}
 &\space\space\space\space L \\
-&\coloneqq \mathbb{E}_{q\left(\mathbf{x}^{(0)}\right)}\left[\log p\left(\mathbf{x}^{(0)}\right)\right] \\
+&≔ \mathbb{E}_{q\left(\mathbf{x}^{(0)}\right)}\left[\log p\left(\mathbf{x}^{(0)}\right)\right] \\
 &= ∫q\left(\mathbf{x}^{(0)}\right)\log p\left(\mathbf{x}^{(0)}\right)\mathrm{d}\mathbf{x}^{(0)} \\
-&= ∫q\left(\mathbf{x}^{(0)}\right)\log\left[\mathbb{E}_{q\left(\mathbf{x}^{(1\cdots T)}|\mathbf{x}^{(0)}\right)}\left[p\left(\mathbf{x}^{(T)}\right)\prod_{t=1}^T\frac{p\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)}{q\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right)}\right]\right]\mathrm{d}\mathbf{x}^{(0)} \\
-&≥ ∫q\left(\mathbf{x}^{(0)}\right)\mathbb{E}_{q\left(\mathbf{x}^{(1\cdots T)}|\mathbf{x}^{(0)}\right)}\left[\log\left[p\left(\mathbf{x}^{(T)}\right)\prod_{t=1}^T\frac{p\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)}{q\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right)}\right]\right]\mathrm{d}\mathbf{x}^{(0)} \\
+&= ∫q\left(\mathbf{x}^{(0)}\right)\log\left[\mathbb{E}_{q\left(\mathbf{x}^{(1\cdots T)}|\mathbf{x}^{(0)}\right)}\left[p\left(\mathbf{x}^{(T)}\right)∏_{t=1}^T\frac{p\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)}{q\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right)}\right]\right]\mathrm{d}\mathbf{x}^{(0)} \\
+&≥ ∫q\left(\mathbf{x}^{(0)}\right)\mathbb{E}_{q\left(\mathbf{x}^{(1\cdots T)}|\mathbf{x}^{(0)}\right)}\left[\log\left[p\left(\mathbf{x}^{(T)}\right)∏_{t=1}^T\frac{p\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)}{q\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right)}\right]\right]\mathrm{d}\mathbf{x}^{(0)} \\
 &\space\space\space\space∵\text{ Jensen の定理 (準静的過程で等号成立)} \\
-&= ∫q\left(\mathbf{x}^{(0\cdots T)}\right)\log\left[p\left(\mathbf{x}^{(T)}\right)\prod_{t=1}^T\frac{p\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)}{q\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right)}\right]\mathrm{d}\mathbf{x}^{(0\cdots T)} \\
-&\coloneqq K
+&= ∫q\left(\mathbf{x}^{(0\cdots T)}\right)\log\left[p\left(\mathbf{x}^{(T)}\right)∏_{t=1}^T\frac{p\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(t)}\right)}{q\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right)}\right]\mathrm{d}\mathbf{x}^{(0\cdots T)} \\
+&≔ K
 \end{align}
 $$
 
@@ -102,11 +102,11 @@ $$
 &\space\space-H_p\left(\mathbf{x}^{(T)}\right) \\
 \end{align}
 $$
-最後の変形は拡散核を適切に設計していれば, $\pi$ に対する $q$ の交差エントロピーが $∀t\in\mathbb{N}, H_{q,\pi}\left(\mathbf{x}^{(t)}\right)=-\mathbb{E}_{q\left(\mathbf{x}^{(t)}\right)}\left[\log\pi\left(\mathbf{x}^{(t)}\right)\right]=\mathrm{Const.}$ と考えられることによる.
+最後の変形は拡散核を適切に設計していれば, $\pi$ に対する $q$ の交差エントロピーが $∀t∈\mathbb{N}, H_{q,\pi}\left(\mathbf{x}^{(t)}\right)=-\mathbb{E}_{q\left(\mathbf{x}^{(t)}\right)}\left[\log\pi\left(\mathbf{x}^{(t)}\right)\right]=\mathrm{Const.}$ と考えられることによる.
 
 -- 事後分布 $q\left(\mathbf{x}^{(t-1)}|\mathbf{x}^{(0)}\right)$ に着目 --
 
-拡散過程は Markov 過程なので, 条件に $\mathbf{x}^{(0)}$ が入ったところで影響はないので以下が成り立つ.
+拡散過程は Markov 過程なので, 条件に $\mathbf{x}^{(0)}$ が入ったところで影響はなく以下が成り立つ.
 $$
 \begin{align}
 ∀t≥2,&\space\space\space\space q\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t-1)}\right) \\
@@ -149,7 +149,7 @@ $$
 $$
 \begin{align}
 \tilde{p}\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t+1)}\right) &= p\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t+1)}\right)\frac{\tilde{Z}_{t+1}r\left(\mathbf{x}^{(t)}\right)}{\tilde{Z}_tr\left(\mathbf{x}^{(t+1)}\right)} \\
-&\coloneqq \frac{1}{\tilde{Z}_t\left(\mathbf{x}^{(t+1)}\right)}p\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t+1)}\right)r\left(\mathbf{x}^{(t)}\right)
+&≔ \frac{1}{\tilde{Z}_t\left(\mathbf{x}^{(t+1)}\right)}p\left(\mathbf{x}^{(t)}|\mathbf{x}^{(t+1)}\right)r\left(\mathbf{x}^{(t)}\right)
 \end{align}
 $$
 
