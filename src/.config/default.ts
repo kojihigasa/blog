@@ -10,7 +10,7 @@ export const defaultConfig: ThemeConfig = {
     author: 'Koji Higasa',
     description: 'Koji Higasa Blog',
     website: 'https://kojihigasa.github.io',
-    pageSize: 5,
+    pageSize: 10,
     socialLinks: [
       {
         name: 'github',
